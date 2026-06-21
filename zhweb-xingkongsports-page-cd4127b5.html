@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>星空体育 · 轻量导航介绍页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #ffe9d0 0%, #fcd4b0 50%, #fcc89a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1.5rem 3rem;
+    }
+
+    .page-wrapper {
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(6px);
+      border-radius: 48px 48px 32px 32px;
+      box-shadow: 0 20px 40px rgba(140, 70, 20, 0.15);
+      padding: 2.5rem 2rem;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2.8rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #7a4a2b;
+    }
+
+    .brand span {
+      background: #e58a5b;
+      color: #fff;
+      padding: 0.15rem 0.6rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #6a3f1f;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #b06432;
+      border-bottom-color: #b06432;
+    }
+
+    /* Hero 区块 */
+    .hero {
+      text-align: left;
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #3a1e0c;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(to right, #c16e3a, #a8542a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #4d2d16;
+      max-width: 85%;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero a {
+      display: inline-block;
+      background: #b45c2e;
+      color: #fff;
+      padding: 0.7rem 2.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 14px rgba(160, 70, 20, 0.25);
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .hero a:hover {
+      background: #934a24;
+      transform: translateY(-3px);
+    }
+
+    /* 核心介绍卡片 */
+    .intro-card {
+      background: #fff;
+      border-radius: 28px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 2.8rem;
+      box-shadow: 0 6px 18px rgba(100, 50, 15, 0.08);
+    }
+
+    .intro-card h2 {
+      font-size: 1.6rem;
+      color: #3f2311;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .intro-card p {
+      color: #2a1a0b;
+      line-height: 1.7;
+      font-size: 1.02rem;
+    }
+
+    .intro-card strong {
+      color: #a8542a;
+    }
+
+    /* 三个场景模块 (卡片网格) */
+    .scene-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin-bottom: 3rem;
+    }
+
+    .scene-item {
+      background: #fff;
+      border-radius: 28px;
+      padding: 1.8rem 1.6rem 2rem;
+      box-shadow: 0 8px 18px rgba(80, 40, 10, 0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .scene-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba(100, 50, 20, 0.12);
+    }
+
+    .scene-item .icon-placeholder {
+      font-size: 2.2rem;
+      margin-bottom: 0.4rem;
+      display: inline-block;
+      background: #fce8d4;
+      width: 48px;
+      height: 48px;
+      line-height: 48px;
+      text-align: center;
+      border-radius: 20px;
+    }
+
+    .scene-item h3 {
+      font-size: 1.3rem;
+      color: #3c1f0d;
+      margin: 0.6rem 0 0.6rem;
+    }
+
+    .scene-item p {
+      color: #3e2a1a;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* 常见说明 (FAQ 摘要) */
+    .faq-section {
+      background: #fff;
+      border-radius: 28px;
+      padding: 2rem 2.2rem 2.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-section h2 {
+      font-size: 1.5rem;
+      color: #3f2311;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item summary {
+      font-weight: 600;
+      color: #4a2b14;
+      cursor: pointer;
+      font-size: 1.05rem;
+      padding: 0.3rem 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .faq-item summary::before {
+      content: "▸";
+      color: #b45c2e;
+      font-size: 1.2rem;
+      margin-right: 0.6rem;
+      transition: transform 0.2s;
+    }
+
+    .faq-item[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .faq-item p {
+      color: #2c1b0c;
+      line-height: 1.6;
+      margin-top: 0.5rem;
+      padding-left: 1.8rem;
+      font-size: 0.98rem;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: #6f4d2b;
+      font-size: 0.95rem;
+      border-top: 1px dashed rgba(130, 70, 30, 0.25);
+      padding-top: 2rem;
+    }
+
+    .footer-note a {
+      color: #b45c2e;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px dotted #b45c2e;
+    }
+
+    .footer-note a:hover {
+      color: #7a3a18;
+      border-bottom-style: solid;
+    }
+
+    /* 响应式 */
+    @media (max-width: 800px) {
+      .hero p {
+        max-width: 100%;
+      }
+      .scene-grid {
+        grid-template-columns: 1fr;
+        gap: 1.3rem;
+      }
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 1rem 1.5rem;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .page-wrapper {
+        padding: 1.8rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 460px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .intro-card, .faq-section {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+      <div class="brand">✦ 星野<span>SPORTS</span></div>
+      <ul class="nav-links">
+        <li><a href="#intro">介绍</a></li>
+        <li><a href="#scenes">场景</a></li>
+        <li><a href="#faq">说明</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <h1>让每一次运动<br>都触及 <em>星空</em></h1>
+      <p>从赛事追踪到社群互动，<strong>星空体育</strong> 将专业数据与沉浸体验融合，为运动爱好者打造有温度的数字化领地。</p>
+      <!-- 指向官网的链接，文本严格为「星空体育」 -->
+      <a href="https://zhweb--xingkongsports.com" target="_blank">星空体育</a>
+    </section>
+
+    <!-- 核心介绍卡片 -->
+    <section class="intro-card" id="intro">
+      <h2>不止于运动</h2>
+      <p><strong>星空体育</strong> 聚合赛事资讯、实时比分、运动社区与个人成长记录，以简洁直观的界面降低信息噪音。无论是职业选手还是业余爱好者，都能在这里找到契合自己节奏的内容。平台持续优化算法，基于运动偏好推送精选内容，同时保留纯粹的人工编辑栏目，兼顾效率与深度。</p>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <section class="scene-grid" id="scenes">
+      <div class="scene-item">
+        <div class="icon-placeholder">🏀</div>
+        <h3>实时战况</h3>
+        <p>覆盖篮球、足球、网球等主流赛事，提供分钟级比分更新与关键事件时间线，省去反复刷新的繁琐。</p>
+      </div>
+      <div class="scene-item">
+        <div class="icon-placeholder">📊</div>
+        <h3>个人数据看板</h3>
+        <p>连接主流穿戴设备与训练应用，自动汇总运动频次、消耗与进步曲线，用可视化的方式复盘每日状态。</p>
+      </div>
+      <div class="scene-item">
+        <div class="icon-placeholder">🤝</div>
+        <h3>同好圈层</h3>
+        <p>基于运动项目与地域建立轻量社群，可发起约战、分享战术笔记，或只是默默浏览同城的训练动态。</p>
+      </div>
+    </section>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <section class="faq-section" id="faq">
+      <h2>常见说明</h2>
+      <details class="faq-item">
+        <summary>星空体育是否需要付费使用？</summary>
+        <p>基础功能完全免费，包括赛事浏览、社区互动和个人基础数据统计。部分高阶数据看板与深度分析报告为可选增值服务。</p>
+      </details>
+      <details class="faq-item">
+        <summary>内容更新频率如何？</summary>
+        <p>赛事数据由合作数据源实时推送，延迟在 2 分钟以内；社区内容由用户与编辑共同产出，每日均有新帖与精选专题。</p>
+      </details>
+      <details class="faq-item">
+        <summary>如何保证运动数据的安全性？</summary>
+        <p>所有穿戴设备数据经由加密传输，用户可随时撤销第三方授权。平台不存储原始健康指标，仅保留经过脱敏的汇总数值。</p>
+      </details>
+      <details class="faq-item">
+        <summary>移动端适配情况如何？</summary>
+        <p>全响应式设计，支持 iOS Safari、Android Chrome 及主流浏览器。建议将 <a href="https://zhweb--xingkongsports.com" style="font-weight:600;color:#b45c2e;text-decoration:underline;">星空体育</a> 添加至主屏以获得类原生体验。</p>
+      </details>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer-note">
+      <p>探索运动与星空的交汇点 · 基于真实需求构建的信息空间</p>
+      <p style="margin-top:0.5rem; font-size:0.88rem;">更多内容请直接访问 <a href="https://zhweb--xingkongsports.com" target="_blank">星空体育</a></p>
+    </footer>
+  </div>
+</body>
+</html>
