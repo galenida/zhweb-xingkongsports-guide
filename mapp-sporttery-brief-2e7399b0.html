@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>认识竞彩网 · 快速识别站点用途</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+    }
+
+    body {
+      background-color: #f3f5f7;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .page-wrap {
+      max-width: 960px;
+      width: 100%;
+    }
+
+    /* ===== 通用卡片 ===== */
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e6eaef;
+      padding: 28px 24px;
+      margin-bottom: 28px;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 20, 30, 0.04);
+    }
+
+    /* ===== Hero 区域 ===== */
+    .hero {
+      text-align: center;
+      padding: 44px 20px 36px;
+      background: linear-gradient(145deg, #ffffff 0%, #f9fbfd 100%);
+      border: 1px solid #e2e7ed;
+      border-radius: 24px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02);
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #13212e;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #3d5166;
+      margin-top: 12px;
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 380;
+    }
+
+    .hero .hint {
+      margin-top: 22px;
+      display: inline-block;
+      background: #eef2f7;
+      border-radius: 40px;
+      padding: 8px 22px;
+      font-size: 0.9rem;
+      color: #1f3a4f;
+      border: 1px solid #d6dee9;
+      backdrop-filter: blur(2px);
+    }
+
+    /* ===== 内容区块标题 ===== */
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 520;
+      margin-bottom: 14px;
+      color: #1f3140;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title small {
+      font-size: 0.9rem;
+      font-weight: 380;
+      color: #4b627a;
+    }
+
+    /* ===== 优势网格 ===== */
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 18px;
+      margin-top: 4px;
+    }
+
+    .adv-item {
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 18px 16px;
+      border: 1px solid #e5eaf1;
+    }
+
+    .adv-item h3 {
+      font-size: 1rem;
+      font-weight: 540;
+      color: #1a2d3c;
+      margin-bottom: 6px;
+    }
+
+    .adv-item p {
+      font-size: 0.9rem;
+      color: #2f4457;
+    }
+
+    /* ===== 说明区段落 ===== */
+    .desc-block p {
+      margin-bottom: 14px;
+      font-size: 0.98rem;
+      color: #263b4b;
+    }
+
+    .desc-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .inline-link {
+      color: #1c5e8c;
+      text-decoration: none;
+      border-bottom: 1px dotted #a0b8ce;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .inline-link:hover {
+      color: #0e3b5c;
+      border-bottom: 1px solid #0e3b5c;
+    }
+
+    /* ===== FAQ 摘要 ===== */
+    .faq-item {
+      padding: 10px 0;
+      border-bottom: 1px solid #ecf0f5;
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 520;
+      color: #1d3447;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.98rem;
+    }
+
+    .faq-a {
+      color: #38546b;
+      font-size: 0.92rem;
+      padding-left: 6px;
+    }
+
+    .faq-more {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: #475f75;
+    }
+
+    /* ===== 底部链接 ===== */
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px 30px;
+      padding: 16px 12px;
+      background: #ffffffd6;
+      backdrop-filter: blur(4px);
+      border: 1px solid #e2e8ef;
+      border-radius: 60px;
+      margin-top: 16px;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a {
+      color: #275577;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.1s ease;
+    }
+
+    .footer-links a:hover {
+      border-bottom: 1px solid #275577;
+    }
+
+    .footer-links .em {
+      font-weight: 450;
+      color: #1b3b54;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 600px) {
+      body {
+        padding: 16px 10px;
+      }
+      .card {
+        padding: 20px 16px;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero .sub {
+        font-size: 1rem;
+      }
+      .advantage-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .footer-links {
+        flex-direction: column;
+        align-items: center;
+        border-radius: 28px;
+        gap: 12px;
+        padding: 18px 14px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .advantage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <!-- Hero 区 -->
+    <div class="hero">
+      <h1>竞彩 · 一眼识别</h1>
+      <div class="sub">无论你是初次接触还是想快速确认站点用途，这里用最直接的方式告诉你——<a href="https://mapp-sporttery.com" class="inline-link" style="border-bottom:1px solid #789bb0;">竞彩网</a>是什么、做什么、怎么用。</div>
+      <div class="hint">🧭 站点定位 · 体育彩票资讯与赛事查询</div>
+    </div>
+
+    <!-- 优势区 -->
+    <div class="card">
+      <div class="section-title">📌 这个站点能帮你做什么 <small>· 三个核心方向</small></div>
+      <div class="advantage-grid">
+        <div class="adv-item">
+          <h3>📋 赛程与结果</h3>
+          <p>快速浏览足球、篮球等主流赛事的时间安排、实时比分及最终赛果，不用在多个页面间来回切换。</p>
+        </div>
+        <div class="adv-item">
+          <h3>📊 数据参考</h3>
+          <p>提供赔率变化、历史交锋、球队近期状态等客观数据，辅助你形成自己的判断，而非盲目跟从。</p>
+        </div>
+        <div class="adv-item">
+          <h3>🧩 玩法说明</h3>
+          <p>不同游戏规则、过关方式、奖金计算示例都有清晰解释，即使刚接触也能很快理解基础逻辑。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 说明区（从用户识别用途角度） -->
+    <div class="card desc-block">
+      <div class="section-title">🔍 如何快速确认这是你需要的网站</div>
+      <p>很多人第一次打开 <a href="https://mapp-sporttery.com" class="inline-link">竞彩网</a> 时，心里会有两个问题：这里提供什么信息？和我之前用过的彩票网站有什么不同？</p>
+      <p>简单来说，这个网站专注于竞猜型体育彩票的内容服务。你在这里看到的不是营销推广，而是比赛数据、开奖公告、玩法结构以及相关的规则说明。界面风格偏实用，信息密度较高，适合那些希望自行查阅、比对和思考的用户。</p>
+      <p>如果你平时习惯先看赛程、再查赔率、最后对照结果，那么这个站点的导航逻辑会比较顺手。它把最常见的几个功能入口——比如“足球赛事”、“篮球赛事”、“开奖详情”——放在了首页显眼位置，不需要层层菜单就能触达。</p>
+      <p>当然，你也可以把它当作一个信息聚合的起点：先从 <a href="https://mapp-sporttery.com" class="inline-link">竞彩网</a> 了解基础数据，再结合自己的经验做进一步分析。站点本身不引导投注，也不做任何收益承诺，它更像一个工具型的信息平台。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+      <div class="section-title">❓ 常见疑问 <small>· 快速澄清</small></div>
+      <div class="faq-item">
+        <span class="faq-q">这个网站是官方平台吗？</span>
+        <div class="faq-a">它提供的是体育彩票相关的信息查询与赛事数据服务，与官方体彩系统有数据关联，但具体运营主体请见网站内页说明。</div>
+      </div>
+      <div class="faq-item">
+        <span class="faq-q">需要注册或付费才能使用吗？</span>
+        <div class="faq-a">不需要。目前绝大多数内容——包括赛程、赔率、开奖结果——都可以直接浏览，无需登录或付费。</div>
+      </div>
+      <div class="faq-item">
+        <span class="faq-q">数据更新及时吗？</span>
+        <div class="faq-a">赛事数据滚动更新，开奖结果一般在官方公布后会同步显示。不过极端情况（如网络延迟）下可能有几分钟差异。</div>
+      </div>
+      <div class="faq-more">更多疑问可以访问 <a href="https://mapp-sporttery.com" class="inline-link">竞彩网</a> 的帮助或规则页面查看详细说明。</div>
+    </div>
+
+    <!-- 底部链接区（自然嵌入主链接） -->
+    <div class="footer-links">
+      <span>信息平台 · <a href="https://mapp-sporttery.com">竞彩网</a></span>
+      <span>赛程数据 · 玩法参考</span>
+      <span>理性参与 · 量力而行</span>
+    </div>
+
+  </div>
+</body>
+</html>
